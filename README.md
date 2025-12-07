@@ -1,3 +1,5 @@
+![Cover](cover.png)
+
 # Home Assistant Power for Kiro
 
 Control Home Assistant with natural language using Kiro.
