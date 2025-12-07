@@ -18,7 +18,7 @@ Access all Home Assistant operations with 80+ tools:
 
 1. Open Kiro
 2. Open Powers panel
-3. Click "Add power from GitHub"
+3. Click "Import power from GitHub"
 4. Enter `https://github.com/rewse/kiro-power-homeassistant/tree/main/power`
 
 ### 2. Install from Local Path
@@ -26,7 +26,7 @@ Access all Home Assistant operations with 80+ tools:
 1. Clone this repository
 2. Open Kiro
 3. Open Powers panel
-4. Click "Add power from Local Path"
+4. Click "Import power from a folder"
 5. Select the `power` directory
 
 ## Prerequisites
@@ -93,7 +93,9 @@ Just talk naturally:
 
 ## MCP Server
 
-This power uses [@homeassistant-ai/ha-mcp](https://github.com/homeassistant-ai/ha-mcp). Special thanks to the Home Assistant AI team for their excellent work on this MCP server.
+- [@homeassistant-ai/ha-mcp](https://github.com/homeassistant-ai/ha-mcp).
+
+Special thanks to the Home Assistant AI team for their excellent work on this MCP server.
 
 ## Troubleshooting
 
