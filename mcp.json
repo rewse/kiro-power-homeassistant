@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "Home Assistant": {
+      "command": "uvx",
+      "args": ["ha-mcp@latest"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "HOMEASSISTANT_URL": "${HOMEASSISTANT_URL}",
+        "HOMEASSISTANT_TOKEN": "${HOMEASSISTANT_TOKEN}"
+      }
+    }
+  }
+}
