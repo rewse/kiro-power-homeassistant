@@ -9,7 +9,8 @@
 │   ├── mcp.json          # MCPサーバー設定
 │   └── steering/         # Kiro Steering ファイル格納ディレクトリ
 │       ├── homeassistant-dev-guide.md    # Home Assistant開発ガイド
-│       └── homeassistant-mcp-tools.md    # MCPツールリファレンス
+│       ├── homeassistant-mcp-tools.md    # MCPツールリファレンス
+│       └── homeassistant-scripts-guide.md # スクリプトガイド
 ├── LICENSE.md             # ライセンスファイル
 └── README.md              # ユーザー向けドキュメント
 ```

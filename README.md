@@ -110,7 +110,8 @@ Ask Kiro: "Can you see my Home Assistant?"
 │   ├── mcp.json           # MCP server configuration
 │   └── steering/
 │       ├── homeassistant-dev-guide.md    # YAML and development patterns
-│       └── homeassistant-mcp-tools.md    # MCP tools reference
+│       ├── homeassistant-mcp-tools.md    # MCP tools reference
+│       └── homeassistant-scripts-guide.md # Script syntax, actions, and conditions
 ├── LICENSE.md
 └── README.md
 ```

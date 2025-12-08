@@ -46,6 +46,7 @@ Kiro Powerのエントリーポイント。以下を含む：
 Power使用時に追加のコンテキストと指示を提供するSteeringファイル群：
 - `homeassistant-dev-guide.md`: Home Assistant開発ガイド（YAML構文、自動化パターン、ベストプラクティス）
 - `homeassistant-mcp-tools.md`: MCPツールリファレンス（各ツールの詳細な使用方法）
+- `homeassistant-scripts-guide.md`: スクリプトガイド（スクリプト構文、アクション、条件、制御フロー）
 
 ### README.md
 ユーザー向けドキュメント。インストール方法、設定、使用例、トラブルシューティングを記載。

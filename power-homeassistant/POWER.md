@@ -60,11 +60,16 @@ Test the connection by asking: "Can you see my Home Assistant?"
 
 # When to Load Steering Files
 
-- Writing YAML automations or scripts → `homeassistant-dev-guide.md`
-- Creating complex automation triggers or conditions → `homeassistant-dev-guide.md`
-- Looking up specific MCP tool usage → `homeassistant-mcp-tools.md`
-- Debugging automation issues → `homeassistant-dev-guide.md`
+- Writing YAML automations or scripts → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
+- Creating automation triggers → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
+- Using conditions in scripts or automations → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
+- Working with control flow (repeat, choose, if-then, parallel) → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
+- Using wait actions or delays → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
+- Handling response variables from actions → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
 - Working with dashboards or Lovelace cards → `homeassistant-dev-guide.md`
+- Creating template sensors → `homeassistant-dev-guide.md`
+- Debugging automation or script issues → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
+- Looking up specific MCP tool usage → `homeassistant-mcp-tools.md`
 
 # Best Practices
 
