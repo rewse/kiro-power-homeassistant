@@ -60,51 +60,48 @@ Test the connection by asking: "Can you see my Home Assistant?"
 
 # When to Load Steering Files
 
-- Writing YAML automations or scripts → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
-- Creating automation triggers → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
-- Using conditions in scripts or automations → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
-- Working with control flow (repeat, choose, if-then, parallel) → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
-- Using wait actions or delays → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
-- Handling response variables from actions → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
-- Working with dashboards or Lovelace cards → `homeassistant-dev-guide.md`
-- Creating template sensors → `homeassistant-dev-guide.md`, `homeassistant-templating-guide.md`, `homeassistant-tips-and-tricks.md`
-- Debugging automation or script issues → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`, `homeassistant-templating-guide.md`, `homeassistant-tips-and-tricks.md`
-- Looking up specific MCP tool usage → `homeassistant-mcp-tools.md`
-- Using Jinja2 template syntax → `homeassistant-templating-guide.md`
-- Accessing entity states or attributes in templates → `homeassistant-templating-guide.md`
-- Working with time, dates, or timestamps in templates → `homeassistant-templating-guide.md`
-- Filtering, iterating, or aggregating entities → `homeassistant-templating-guide.md`
-- Using areas, devices, floors, or labels in templates → `homeassistant-templating-guide.md`
-- Creating reusable template macros → `homeassistant-templating-guide.md`
-- Sending notifications to mobile devices → `homeassistant-companion-app-guide.md`
-- Creating actionable notifications with buttons → `homeassistant-companion-app-guide.md`
-- Setting up location tracking or device trackers → `homeassistant-companion-app-guide.md`
-- Working with mobile app sensors (battery, network, etc.) → `homeassistant-companion-app-guide.md`
-- Configuring iOS widgets or Siri Shortcuts → `homeassistant-companion-app-guide.md`
-- Configuring Android widgets or quick settings tiles → `homeassistant-companion-app-guide.md`
-- Troubleshooting mobile app connection issues → `homeassistant-companion-app-guide.md`
-- Using notification commands (request_location_update, etc.) → `homeassistant-companion-app-guide.md`
-- Building room-by-room climate systems → `homeassistant-smart-climate-guide.md`
-- Creating climate mode automations (Present/Absent/Vent) → `homeassistant-smart-climate-guide.md`
-- Implementing manual override patterns for climate control → `homeassistant-smart-climate-guide.md`
-- Using presence sensors for climate automation → `homeassistant-smart-climate-guide.md`
-- Setting up window/door sensors for climate control → `homeassistant-smart-climate-guide.md`
-- Creating modular automation chains → `homeassistant-smart-climate-guide.md`
-- Adaptive lighting based on time of day or illuminance → `homeassistant-smart-climate-guide.md`
-- Adjusting color temperature and brightness automatically → `homeassistant-smart-climate-guide.md`
-- Looking for practical tips and tricks → `homeassistant-tips-and-tricks.md`
-- Extending voice assistant (Assist) with custom commands → `homeassistant-tips-and-tricks.md`
-- Using sentence triggers and wildcards → `homeassistant-tips-and-tricks.md`
-- Organizing dashboards with subviews → `homeassistant-tips-and-tricks.md`
-- Creating dynamic scenes with scene.create → `homeassistant-tips-and-tricks.md`
-- Using zones for occupancy detection → `homeassistant-tips-and-tricks.md`
-- Testing automations with fake state changes → `homeassistant-tips-and-tricks.md`
-- Using trigger IDs with choose action → `homeassistant-tips-and-tricks.md`
-- Understanding script run vs turn_on behavior → `homeassistant-tips-and-tricks.md`
-- Using input_boolean as automation master switch → `homeassistant-tips-and-tricks.md`
-- Setting up remote backups → `homeassistant-tips-and-tricks.md`
-- Configuring Universal Media Player → `homeassistant-tips-and-tricks.md`
-- Using macOS Companion App sensors → `homeassistant-tips-and-tricks.md`
+## Automations & Scripts
+
+WHEN writing YAML automations, scripts, triggers, conditions, or control flow (repeat, choose, if-then, parallel, wait, delays, response variables)
+THEN load `homeassistant-dev-guide.md` and `homeassistant-scripts-guide.md`
+
+WHEN debugging automation or script issues
+THEN load `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`, and `homeassistant-templating-guide.md`
+
+## Templates
+
+WHEN working with Jinja2 templates (entity states, attributes, time/dates, filtering, aggregation, areas, devices, macros)
+THEN load `homeassistant-templating-guide.md`
+
+## Dashboards
+
+WHEN working with dashboards, Lovelace cards, or subviews
+THEN load `homeassistant-dev-guide.md`
+
+## Mobile App
+
+WHEN working with mobile notifications, location tracking, app sensors, widgets, Siri Shortcuts, Android tiles, or troubleshooting app issues
+THEN load `homeassistant-companion-app-guide.md`
+
+## Climate & Lighting
+
+WHEN building climate systems, adaptive lighting, modular automation chains, or presence-based control
+THEN load `homeassistant-smart-climate-guide.md`
+
+## Tips & Tricks
+
+WHEN extending Assist with custom commands, using sentence triggers, creating dynamic scenes, testing automations, or configuring advanced features (zones, master switches, Universal Media Player)
+THEN load `homeassistant-tips-and-tricks.md`
+
+## MCP Tools
+
+WHEN looking up specific MCP tool usage or parameters
+THEN load `homeassistant-mcp-tools.md`
+
+## Extended Workflows
+
+WHEN needing advanced workflow examples (smart climate, voice assistant, parallel actions, iOS Actions, Android tiles, template macros)
+THEN load `homeassistant-advanced-workflows.md`
 
 # Best Practices
 
