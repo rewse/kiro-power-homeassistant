@@ -6,7 +6,7 @@ A Kiro Power that brings Home Assistant expertise directly into your development
 
 ## What is a Kiro Power?
 
-Powers are unified packages that combine MCP tools with framework expertise. Instead of just providing API access, powers give Kiro deep knowledge of Home Assistant patterns, best practices, and workflows. When you mention "automation" or "YAML," the power activates—loading relevant tools and context dynamically.
+Powers are unified packages that combine MCP tools with framework expertise. Instead of just providing API access, powers give Kiro deep knowledge of Home Assistant patterns, best practices, and workflows. When you mention "homeassistant" or "hass," the power activates—loading relevant tools and context dynamically.
 
 ## Features
 
@@ -108,7 +108,7 @@ This power combines:
 1. **MCP Tools**: 82 tools from [ha-mcp](https://github.com/homeassistant-ai/ha-mcp) for direct Home Assistant API access
 2. **Framework Expertise**: Built-in knowledge of Home Assistant patterns, YAML syntax, and best practices
 
-When you mention keywords like "automation," "YAML," or "dashboard," the power activates dynamically—loading only relevant tools and context.
+When you mention keywords like "homeassistant," "home assistant," "hass," or "lovelace," the power activates—loading relevant tools and context.
 
 ## Troubleshooting
 
