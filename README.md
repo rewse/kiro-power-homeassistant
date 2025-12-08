@@ -19,8 +19,8 @@ Access all Home Assistant operations with 80+ tools:
 ```
 .
 ├── power-homeassistant/   # Power files directory
-│   ├── POWER.md          # Kiro Power metadata and documentation
-│   └── mcp.json          # MCP server configuration
+│   ├── POWER.md           # Kiro Power metadata and documentation
+│   └── mcp.json           # MCP server configuration
 ├── LICENSE.md             # License file
 └── README.md              # User documentation
 ```
