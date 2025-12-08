@@ -62,6 +62,16 @@
         "ha_list_zones",
         "ha_search_entities"
       ]
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch",
+        "--ignore-robots-txt"
+      ],
+      "autoApprove": [
+        "fetch"
+      ]
     }
   }
 }
