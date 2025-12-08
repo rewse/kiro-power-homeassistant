@@ -115,7 +115,8 @@ Ask Kiro: "Can you see my Home Assistant?"
 │       ├── homeassistant-scripts-guide.md  # Script syntax, actions, and conditions
 │       ├── homeassistant-smart-climate-guide.md # Modular climate/lighting automation patterns
 │       ├── homeassistant-templating-guide.md # Jinja2 templating reference
-│       └── homeassistant-tips-and-tricks.md # Practical tips: Assist, subviews, zones, dynamic scenes
+│       ├── homeassistant-tips-and-tricks.md # Practical tips: Assist, subviews, zones, dynamic scenes
+│       └── homeassistant-advanced-workflows.md # Extended workflow examples
 ├── LICENSE.md
 └── README.md
 ```

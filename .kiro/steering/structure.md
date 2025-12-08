@@ -14,7 +14,8 @@
 │       ├── homeassistant-scripts-guide.md  # スクリプトガイド
 │       ├── homeassistant-smart-climate-guide.md # スマートクライメートガイド
 │       ├── homeassistant-templating-guide.md # テンプレートガイド
-│       └── homeassistant-tips-and-tricks.md # Tips & Tricksガイド
+│       ├── homeassistant-tips-and-tricks.md # Tips & Tricksガイド
+│       └── homeassistant-advanced-workflows.md # 拡張ワークフローガイド
 ├── LICENSE.md             # ライセンスファイル
 └── README.md              # ユーザー向けドキュメント
 ```
