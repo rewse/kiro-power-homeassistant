@@ -1,4 +1,4 @@
-![Cover](cover.png)
+![Cover](cover.jpg)
 
 # Home Assistant Power for Kiro
 
