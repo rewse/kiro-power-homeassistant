@@ -2,7 +2,7 @@
 name: "homeassistant"
 displayName: "Home Assistant"
 description: "Control your smart home with natural language. 82 tools for device control, automation creation, dashboard management, and more"
-keywords: ["homeassistant", "home assistant", "smart home", "automation", "yaml", "dashboard", "script", "scene"]
+keywords: ["homeassistant", "home assistant", "hass", "ha-mcp", "lovelace"]
 author: "Shibata, Tats"
 ---
 

@@ -106,6 +106,24 @@ author: "Author Name"        # 作者
 ---
 ```
 
+### キーワード設計のガイドライン
+キーワードは一般的すぎると予期せぬところでPowerがトリガーされる可能性がある。
+
+**避けるべきキーワード（一般的すぎる）:**
+- `automation` - CI/CD、テスト自動化などでもトリガーされる
+- `yaml` - あらゆるYAML設定でトリガーされる
+- `dashboard` - Grafana、Kibanaなど他のダッシュボードでも
+- `script` - シェルスクリプト、Pythonスクリプトなどでも
+- `scene` - 3Dモデリング、ゲーム開発などでも
+- `smart home` - 一般的なIoT議論でも
+- `iot` - 非常に広範な用語
+
+**推奨されるキーワード（固有性が高い）:**
+- 製品/サービス固有の名前（例: `homeassistant`, `home assistant`）
+- 公式の略称（例: `hass`）
+- パッケージ名（例: `ha-mcp`）
+- 製品固有の機能名（例: `lovelace`）
+
 ### mcp.json構造
 ```json
 {
