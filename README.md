@@ -122,7 +122,7 @@ This power combines:
 1. **MCP Tools**: 80+ tools from [ha-mcp](https://github.com/homeassistant-ai/ha-mcp) for direct Home Assistant API access
 2. **Framework Expertise**: Built-in knowledge of Home Assistant patterns, YAML syntax, and best practices
 
-When you mention keywords like "homeassistant," "home assistant," "hass," or "lovelace," the power activates—loading relevant tools and context.
+When you mention keywords like "homeassistant," "home assistant," "hass,", "ha-mcp", or "lovelace," the power activates—loading relevant tools and context.
 
 ## Troubleshooting
 
