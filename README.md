@@ -109,9 +109,10 @@ Ask Kiro: "Can you see my Home Assistant?"
 │   ├── POWER.md           # Power metadata and documentation
 │   ├── mcp.json           # MCP server configuration
 │   └── steering/
-│       ├── homeassistant-dev-guide.md    # YAML and development patterns
-│       ├── homeassistant-mcp-tools.md    # MCP tools reference
-│       └── homeassistant-scripts-guide.md # Script syntax, actions, and conditions
+│       ├── homeassistant-dev-guide.md      # YAML and development patterns
+│       ├── homeassistant-mcp-tools.md      # MCP tools reference
+│       ├── homeassistant-scripts-guide.md  # Script syntax, actions, and conditions
+│       └── homeassistant-templating-guide.md # Jinja2 templating reference
 ├── LICENSE.md
 └── README.md
 ```

@@ -8,9 +8,10 @@
 │   ├── POWER.md          # Kiro Powerメタデータと詳細ドキュメント
 │   ├── mcp.json          # MCPサーバー設定
 │   └── steering/         # Kiro Steering ファイル格納ディレクトリ
-│       ├── homeassistant-dev-guide.md    # Home Assistant開発ガイド
-│       ├── homeassistant-mcp-tools.md    # MCPツールリファレンス
-│       └── homeassistant-scripts-guide.md # スクリプトガイド
+│       ├── homeassistant-dev-guide.md      # Home Assistant開発ガイド
+│       ├── homeassistant-mcp-tools.md      # MCPツールリファレンス
+│       ├── homeassistant-scripts-guide.md  # スクリプトガイド
+│       └── homeassistant-templating-guide.md # テンプレートガイド
 ├── LICENSE.md             # ライセンスファイル
 └── README.md              # ユーザー向けドキュメント
 ```

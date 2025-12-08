@@ -67,9 +67,15 @@ Test the connection by asking: "Can you see my Home Assistant?"
 - Using wait actions or delays → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
 - Handling response variables from actions → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
 - Working with dashboards or Lovelace cards → `homeassistant-dev-guide.md`
-- Creating template sensors → `homeassistant-dev-guide.md`
-- Debugging automation or script issues → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
+- Creating template sensors → `homeassistant-dev-guide.md`, `homeassistant-templating-guide.md`
+- Debugging automation or script issues → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`, `homeassistant-templating-guide.md`
 - Looking up specific MCP tool usage → `homeassistant-mcp-tools.md`
+- Using Jinja2 template syntax → `homeassistant-templating-guide.md`
+- Accessing entity states or attributes in templates → `homeassistant-templating-guide.md`
+- Working with time, dates, or timestamps in templates → `homeassistant-templating-guide.md`
+- Filtering, iterating, or aggregating entities → `homeassistant-templating-guide.md`
+- Using areas, devices, floors, or labels in templates → `homeassistant-templating-guide.md`
+- Creating reusable template macros → `homeassistant-templating-guide.md`
 
 # Best Practices
 
