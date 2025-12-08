@@ -24,6 +24,33 @@ This power provides comprehensive Home Assistant support:
 - **Monitoring**: History, statistics, camera snapshots, automation traces, ZHA devices
 - **System**: Backup/restore, updates, add-ons, device registry
 
+## Usage Examples
+
+### Device Control & State Query
+
+- "Turn on the living room lights"
+- "What's the temperature in the bedroom?"
+- "Which lights are currently on?"
+
+### Automation and Template Development
+
+- "Create an automation that turns on the porch light at sunset"
+- "Why isn't my motion sensor automation working?"
+- "Create a template sensor that averages two temperature sensors"
+
+### Dashboard Management
+
+- "Show me my current dashboard configuration"
+- "Add a weather card to my dashboard"
+- "Create a new view for my climate controls"
+
+### YAML Configuration
+
+- "Can you review my automation YAML for best practices?"
+- "How should I split my configuration.yaml?"
+- "My template sensor shows 'unavailable' on startup"
+- "Update my old automation to use modern syntax"
+
 ## Installation
 
 ### From GitHub
@@ -73,33 +100,6 @@ When installing the power, configure:
 ### 3. Test
 
 Ask Kiro: "Can you see my Home Assistant?"
-
-## Usage Examples
-
-### Device Control & State Query
-
-- "Turn on the living room lights"
-- "What's the temperature in the bedroom?"
-- "Which lights are currently on?"
-
-### Automation and Template Development
-
-- "Create an automation that turns on the porch light at sunset"
-- "Why isn't my motion sensor automation working?"
-- "Create a template sensor that averages two temperature sensors"
-
-### Dashboard Management
-
-- "Show me my current dashboard configuration"
-- "Add a weather card to my dashboard"
-- "Create a new view for my climate controls"
-
-### YAML Configuration
-
-- "Can you review my automation YAML for best practices?"
-- "How should I split my configuration.yaml?"
-- "My template sensor shows 'unavailable' on startup"
-- "Update my old automation to use modern syntax"
 
 ## Project Structure
 
