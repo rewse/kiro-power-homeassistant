@@ -14,6 +14,17 @@ Access all Home Assistant operations with 80+ tools:
 - **Monitoring**: History, statistics, camera snapshots, automation traces, ZHA devices
 - **System**: Backup/restore, updates, add-ons, device registry
 
+## Project Structure
+
+```
+.
+├── power-homeassistant/   # Power files directory
+│   ├── POWER.md          # Kiro Power metadata and documentation
+│   └── mcp.json          # MCP server configuration
+├── LICENSE.md             # License file
+└── README.md              # User documentation
+```
+
 ## Installation
 
 ### 1. Install Directly in Kiro
@@ -21,7 +32,7 @@ Access all Home Assistant operations with 80+ tools:
 1. Open Kiro
 2. Open Powers panel
 3. Click "Import power from GitHub"
-4. Enter `https://github.com/rewse/kiro-power-homeassistant/tree/main/power`
+4. Enter `https://github.com/rewse/kiro-power-homeassistant/tree/main/power-homeassistant`
 
 ### 2. Install from Local Path
 
@@ -29,7 +40,7 @@ Access all Home Assistant operations with 80+ tools:
 2. Open Kiro
 3. Open Powers panel
 4. Click "Import power from a folder"
-5. Select the `power` directory
+5. Select the `power-homeassistant` directory
 
 ## Prerequisites
 
