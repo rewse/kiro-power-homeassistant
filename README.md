@@ -10,7 +10,13 @@ Powers are unified packages that combine MCP tools with framework expertise. Ins
 
 ## Features
 
-This power provides comprehensive Home Assistant support through 82 MCP tools and specialized knowledge:
+This power provides comprehensive Home Assistant support:
+
+- **80+ MCP Tools**: Complete Home Assistant API access for device control, automation creation, dashboard management, and system configuration
+- **Specialized Knowledge**: YAML automation patterns, best practices, debugging workflows, and Home Assistant conventions
+- **Guided Workflows**: Step-by-step assistance for common tasks like creating automations, troubleshooting issues, and optimizing configurations
+
+**MCP tool categories:**
 
 - **Search & Discovery**: Fuzzy entity search, deep config search, system overview
 - **Control**: Any service call, bulk device control, real-time state retrieval
@@ -105,7 +111,7 @@ Ask Kiro: "Can you see my Home Assistant?"
 
 This power combines:
 
-1. **MCP Tools**: 82 tools from [ha-mcp](https://github.com/homeassistant-ai/ha-mcp) for direct Home Assistant API access
+1. **MCP Tools**: 80+ tools from [ha-mcp](https://github.com/homeassistant-ai/ha-mcp) for direct Home Assistant API access
 2. **Framework Expertise**: Built-in knowledge of Home Assistant patterns, YAML syntax, and best practices
 
 When you mention keywords like "homeassistant," "home assistant," "hass," or "lovelace," the power activates—loading relevant tools and context.

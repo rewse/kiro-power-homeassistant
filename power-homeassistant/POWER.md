@@ -1,16 +1,22 @@
 ---
 name: "homeassistant"
 displayName: "Home Assistant"
-description: "Control your smart home with natural language. 82 tools for device control, automation creation, dashboard management, and more"
+description: "Control your smart home with natural language. 80+ tools for device control, automation creation, dashboard management, and more"
 keywords: ["homeassistant", "home assistant", "hass", "ha-mcp", "lovelace"]
 author: "Shibata, Tats"
 ---
 
 # Home Assistant Power
 
-Control Home Assistant with natural language using Kiro. Access all Home Assistant operations with 82 tools, from device control to automation creation. This power provides complete access to Home Assistant's MCP server for managing devices, automations, dashboards, and system configuration.
+Control Home Assistant with natural language using Kiro. This power combines MCP tools with Home Assistant expertise to help you manage your smart home effectively.
 
-**Key capabilities:**
+**What this power provides:**
+
+- **80+ MCP Tools**: Complete Home Assistant API access for device control, automation creation, dashboard management, and system configuration
+- **Specialized Knowledge**: YAML automation patterns, best practices, debugging workflows, and Home Assistant conventions via steering files
+- **Guided Workflows**: Step-by-step assistance for common tasks like creating automations, troubleshooting issues, and optimizing configurations
+
+**MCP tool categories:**
 
 - **Search & Discovery**: Fuzzy entity search, deep config search, system overview
 - **Control**: Any service call, bulk device control, real-time state retrieval
