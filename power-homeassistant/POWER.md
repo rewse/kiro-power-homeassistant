@@ -167,12 +167,6 @@ Test the connection by asking: "Can you see my Home Assistant?"
 
 # Resources
 
-### Kiro Power
-
-- [Create poowers](https://kiro.dev/docs/powers/create/)
-- [Kiro Powers Repository](https://github.com/kirodotdev/powers)
-- [Introducing Kiro powers - Blog Article](https://kiro.dev/blog/introducing-powers/)
-
 ### Home Assistant MCP Server
 
 - [Home Assistant MCP Server](https://github.com/homeassistant-ai/ha-mcp)

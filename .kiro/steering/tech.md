@@ -148,14 +148,23 @@ author: "Author Name"        # 作者
 }
 ```
 
-## 外部リソース
-- **Kiro Power 作成ガイド**: https://kiro.dev/docs/powers/create/
-- **Kiro Powers リポジトリ**: https://github.com/kirodotdev/powers
-- **Introducing Kiro powers - Kiro**: https://kiro.dev/blog/introducing-powers/
-- **MCPサーバーソース**: https://github.com/homeassistant-ai/ha-mcp
-- **MCPサーバーFAQ**: https://github.com/homeassistant-ai/ha-mcp/blob/master/docs/FAQ.md
-- **macOS uv インストールガイド**: https://github.com/homeassistant-ai/ha-mcp/blob/master/docs/macOS-uv-guide.md
-- **Windows uv インストールガイド**: https://github.com/homeassistant-ai/ha-mcp/blob/master/docs/Windows-uv-guide.md
-- **Standards**: https://developers.home-assistant.io/docs/documenting/standards
-- **General style guide**: https://developers.home-assistant.io/docs/documenting/general-style-guide
-- **YAML Style Guide**: https://developers.home-assistant.io/docs/documenting/yaml-style-guide/
+# 外部リソース
+
+### Kiro Power
+
+- [Create poowers](https://kiro.dev/docs/powers/create/)
+- [Kiro Powers Repository](https://github.com/kirodotdev/powers)
+- [Introducing Kiro powers - Blog Article](https://kiro.dev/blog/introducing-powers/)
+
+### Home Assistant MCP Server
+
+- [Home Assistant MCP Server](https://github.com/homeassistant-ai/ha-mcp)
+- [FAQ & Troubleshooting](https://github.com/homeassistant-ai/ha-mcp/blob/master/docs/FAQ.md)
+- [macOS uv Installation](https://github.com/homeassistant-ai/ha-mcp/blob/master/docs/macOS-uv-guide.md)
+- [Windows uv Installation](https://github.com/homeassistant-ai/ha-mcp/blob/master/docs/Windows-uv-guide.md)
+
+### Home Assistant Developer Guide
+
+- [Standards](https://developers.home-assistant.io/docs/documenting/standards)
+- [General style guide](https://developers.home-assistant.io/docs/documenting/general-style-guide)
+- [YAML Style Guide](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/)
