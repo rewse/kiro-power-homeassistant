@@ -146,6 +146,7 @@ Agent: Uses ha_search_entities to find temperature sensors
 ```
 User: Create an automation that turns on the porch light at sunset
 Agent: Loads homeassistant-dev-guide.md for YAML conventions
+       Loads homeassistant-scripts-guide.md for action syntax
        Creates automation following best practices:
        - Descriptive alias: "Porch Light at Sunset"
        - Service action targets (not legacy entity_id)
@@ -160,6 +161,8 @@ Agent: Loads homeassistant-dev-guide.md for YAML conventions
 User: Why isn't my motion sensor automation working?
 Agent: Uses ha_get_automation_traces to check execution history
        Loads homeassistant-dev-guide.md if YAML issues suspected
+       Loads homeassistant-scripts-guide.md for action/condition syntax
+       Loads homeassistant-templating-guide.md if template errors found
        Identifies trigger conditions, timing issues, or syntax problems
        Suggests fixes based on trace analysis and best practices
 ```
@@ -179,6 +182,7 @@ Agent: Uses ha_config_get_dashboard to read current config
 ```
 User: Create a template sensor that averages two temperature sensors
 Agent: Loads homeassistant-dev-guide.md for template guidelines
+       Loads homeassistant-templating-guide.md for Jinja2 syntax
        Creates sensor with:
        - unique_id for entity registry
        - Proper device_class and state_class
@@ -193,6 +197,7 @@ Agent: Loads homeassistant-dev-guide.md for template guidelines
 ```
 User: Can you review my automation YAML for best practices?
 Agent: Loads homeassistant-dev-guide.md for style guidelines
+       Loads homeassistant-scripts-guide.md for action syntax
        Checks for:
        - Two-space indentation
        - Boolean values (true/false, not yes/no)
@@ -218,6 +223,7 @@ Agent: Loads homeassistant-dev-guide.md for file organization
 ```
 User: My template sensor shows "unavailable" on startup
 Agent: Loads homeassistant-dev-guide.md for template best practices
+       Loads homeassistant-templating-guide.md for Jinja2 functions
        Identifies common issues:
        - Direct states object access vs helper functions
        - Missing default values
@@ -231,12 +237,38 @@ Agent: Loads homeassistant-dev-guide.md for template best practices
 ```
 User: Update my old automation to use modern syntax
 Agent: Loads homeassistant-dev-guide.md for current standards
+       Loads homeassistant-scripts-guide.md for modern action syntax
        Converts:
        - entity_id in data → target syntax
        - Template conditions → native conditions where possible
        - yes/no booleans → true/false
        - Single quotes → double quotes
        Provides updated YAML following current best practices
+```
+
+## Create Script (MCP + Steering)
+
+```
+User: Create a script that turns on the fan, waits 30 minutes, then turns it off
+Agent: Loads homeassistant-scripts-guide.md for script syntax
+       Loads homeassistant-templating-guide.md if conditions needed
+       Creates script with:
+       - sequence of actions, delay, or control flow (choose, repeat, if-then)
+       - Proper time format for delays
+       - Service action targets
+       Uses ha_config_set_script to deploy
+```
+
+## Send Mobile Notification (MCP + Steering)
+
+```
+User: Send a notification to my phone when the front door opens
+Agent: Loads homeassistant-companion-app-guide.md for notification syntax
+       Creates automation with:
+       - State trigger for door sensor
+       - notify.mobile_app_[device] service
+       - Optional: actionable buttons, images, critical alerts
+       Uses ha_config_set_automation to deploy
 ```
 
 # Troubleshooting
