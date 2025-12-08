@@ -26,11 +26,11 @@ These guidelines are based on the official Home Assistant YAML Style Guide ([dev
 - Nested elements should be indented two spaces from their parent element
 
 ```yaml
-# Good example
+# Good
 automation:
-  - alias: Good example
-    trigger:
-      - platform: state
+  - alias: "Good example"
+    triggers:
+      - trigger: state
         entity_id: binary_sensor.motion
 ```
 
@@ -40,11 +40,11 @@ automation:
 - Do not use abbreviations like `yes`/`no` or `on`/`off` (for compatibility with YAML 1.2 specification)
 
 ```yaml
-# Good example
+# Good
 one: true
 two: false
 
-# Bad example
+# Bad
 one: True
 two: on
 three: yes
@@ -57,12 +57,12 @@ three: yes
 - Comments should start with a capital letter and have a space after `#`
 
 ```yaml
-# Good example
+# Good
 example:
   # Comment
   one: true
 
-# Acceptable but above is preferred
+# Acceptable, but prefer the above
 example:
   one: true # Comment
 ```
@@ -75,13 +75,13 @@ example:
 #### Block-Style Sequences
 
 ```yaml
-# Good example
+# Good
 example:
   - 1
   - 2
   - 3
 
-# Bad example
+# Bad
 example:
 - 1
 - 2
@@ -93,10 +93,10 @@ example:
 When using flow-style, add a space after commas and no spaces before/after opening/closing brackets:
 
 ```yaml
-# Good example
+# Good
 example: [1, 2, 3]
 
-# Bad example
+# Bad
 example: [ 1,2,3 ]
 example: [ 1, 2, 3 ]
 ```
@@ -107,12 +107,12 @@ example: [ 1, 2, 3 ]
 - Do not use flow-style (JSON-like notation)
 
 ```yaml
-# Good example
+# Good
 example:
   one: 1
   two: 2
 
-# Bad example
+# Bad
 example: { one: 1, two: 2 }
 ```
 
@@ -122,10 +122,10 @@ example: { one: 1, two: 2 }
 - Avoid explicit null values (`~` or `null`)
 
 ```yaml
-# Good example
+# Good
 example:
 
-# Bad example
+# Bad
 example: ~
 example: null
 ```
@@ -135,17 +135,265 @@ example: null
 - Strings should preferably be enclosed in **double quotes** (`"`)
 
 ```yaml
-# Good example
+# Good
 example: "Hi there!"
 
-# Should avoid
+# Avoid
 example: Hi there!
 
-# Bad example
+# Bad
 example: 'Hi there!'
 ```
 
-## Template Notation
+#### Multi-line Strings
+
+Avoid using line break indicators like `\n` or long single-line strings. Instead, use literal style (preserves line breaks) and folded style (does not preserve line breaks) multi-line strings.
+
+```yaml
+# Good
+literal_example: |
+  This example is an example of literal block scalar style in YAML.
+  It allows you to split a string into multiple lines.
+folded_example: >
+  This example is an example of a folded block scalar style in YAML.
+  It allows you to split a string into multi lines, however, it magically
+  removes all the new lines placed in your YAML.
+
+# Bad
+literal_example: "This example is an example of literal block scalar style in YAML.\nIt allows you to split a string into multiple lines.\n"
+folded_example_same_as: "This example is an example of a folded block scalar style in YAML. It allows you to split a string into multi lines, however, it magically removes all the new lines placed in your YAML.\n"
+```
+
+Generally, use operators that do not specify trailing newline handling (`|`, `>`). Only use strip operators (`|-`, `>-`: removes trailing newlines) or keep operators (`|+`, `>+`: preserves trailing newlines) when special handling is needed.
+
+## Home Assistant YAML
+
+### Default Values
+
+If a configuration option uses its default value, do not include that option in examples, unless you are explaining that specific option.
+
+For example, the `condition` option in automations is optional and defaults to an empty list `[]`.
+
+```yaml
+# Good
+- alias: "Test"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.motion
+
+# Bad
+- alias: "Test"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.motion
+  condition: []
+```
+
+### Strings (Continued)
+
+As mentioned earlier, strings should preferably be enclosed in double quotes, but the following value types are exceptions and quotes can be omitted for better readability:
+
+- Entity IDs (for example, `binary_sensor.motion`)
+- Entity attributes (for example, `temperature`)
+- Device IDs
+- Area IDs
+- Platform types (for example, `light`, `switch`)
+- Condition types (for example, `numeric_state`, `state`)
+- Trigger types (for example, `state`, `time`)
+- Action names (for example, `light.turn_on`)
+- Device classes (for example, `problem`, `motion`)
+- Event names
+- Hardcoded values that accept only limited values (for example, automation `mode`)
+
+```yaml
+# Good
+actions:
+  - action: notify.frenck
+    data:
+      message: "Hi there!"
+  - action: light.turn_on
+    target:
+      entity_id: light.office_desk
+      area_id: living_room
+    data:
+      transition: 10
+
+# Bad
+actions:
+  - action: "notify.frenck"
+    data:
+      message: Hi there!
+```
+
+### Service Action Targets
+
+When executing a service action on an entity ID, there are three methods:
+
+1. Specify as an action-level property
+2. Send as part of the service action call data
+3. Specify as an entity in the service action target
+
+Service action targets are the most modern method and the most flexible and recommended approach, as they can target entities, devices, and areas.
+
+```yaml
+# Good
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.living_room
+  - action: light.turn_on
+    target:
+      area_id: living_room
+      entity_id: light.office_desk
+      device_id: 21349287492398472398
+
+# Bad
+actions:
+  - action: light.turn_on
+    entity_id: light.living_room
+  - action: light.turn_on
+    data:
+      entity_id: light.living_room
+```
+
+### Properties Accepting Scalar Values or Lists of Scalar Values
+
+For properties that accept a single value or a list of scalar values, the following rules apply:
+
+- Do not specify multiple values as a single comma-separated string
+- Use block-style when using lists
+- Do not use a list for a single value
+- Using a single scalar value is permitted
+
+```yaml
+# Good
+entity_id: light.living_room
+entity_id:
+  - light.living_room
+  - light.office
+
+# Bad
+entity_id: light.living_room, light.office
+entity_id: [light.living_room, light.office]
+entity_id:
+  - light.living_room
+```
+
+### Properties Accepting Mappings or Lists of Mappings
+
+Properties like `condition`, `action`, and `sequence` accept a single mapping or a list of mappings.
+
+In such cases, use a list of mappings even when passing a single mapping. This makes it easier to understand that items can be added and makes it easier to copy and paste single items into your own code.
+
+```yaml
+# Good
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.living_room
+
+# Bad
+actions:
+  action: light.turn_on
+  target:
+    entity_id: light.living_room
+```
+
+## Templates
+
+Home Assistant templates are powerful but can be confusing or difficult to understand for less experienced users. Therefore, avoid using templates when a pure YAML version is available.
+
+```yaml
+# Good
+conditions:
+  - condition: numeric_state
+    entity_id: sun.sun
+    attribute: elevation
+    below: 4
+
+# Bad
+conditions:
+  - condition: template
+    value_template: "{{ state_attr('sun.sun', 'elevation') < 4 }}"
+```
+
+### Quoting Style
+
+Since templates are strings, enclose them in double quotes. As a result, use single quotes within templates.
+
+```yaml
+# Good
+example: "{{ 'some_value' == some_other_value }}"
+
+# Bad
+example: '{{ "some_value" == some_other_value }}'
+```
+
+### Template String Length
+
+Avoid long lines in templates and split them into multiple lines to clarify what is happening and improve readability.
+
+```yaml
+# Good
+value_template: >-
+  {{
+    is_state('sensor.bedroom_co_status', 'Ok')
+    and is_state('sensor.kitchen_co_status', 'Ok')
+    and is_state('sensor.wardrobe_co_status', 'Ok')
+  }}
+
+# Bad
+value_template: "{{ is_state('sensor.bedroom_co_status', 'Ok') and is_state('sensor.kitchen_co_status', 'Ok') and is_state('sensor.wardrobe_co_status', 'Ok') }}"
+```
+
+### Short-Style Condition Syntax
+
+Prefer shorthand templates over expressive forms. They provide more concise syntax.
+
+```yaml
+# Good
+conditions: "{{ some_value == some_other_value }}"
+
+# Bad
+conditions:
+  - condition: template
+    value_template: "{{ some_value == some_other_value }}"
+```
+
+### Filters
+
+Spaces are required around the filter pipe marker `|`. If this makes readability unclear, using additional parentheses is recommended.
+
+```yaml
+# Good
+conditions:
+  - "{{ some_value | float }}"
+  - "{{ some_value == (some_other_value | some_filter) }}"
+
+# Bad
+conditions:
+  - "{{ some_value == some_other_value|some_filter }}"
+  - "{{ some_value == (some_other_value|some_filter) }}"
+```
+
+### Accessing States and State Attributes
+
+Do not use the states object directly when helper methods are available.
+
+For example, use `states('sensor.temperature')` instead of `states.sensor.temperature.state`.
+
+```yaml
+# Good
+one: "{{ states('sensor.temperature') }}"
+two: "{{ state_attr('climate.living_room', 'temperature') }}"
+
+# Bad
+one: "{{ states.sensor.temperature.state }}"
+two: "{{ states.climate.living_room.attributes.temperature }}"
+```
+
+This applies to `states()`, `is_state()`, `state_attr()`, and `is_state_attr()` to avoid errors and error messages when entities are not yet ready (for example, during Home Assistant startup).
+
 
 ### Using Functions and Filters
 
@@ -192,10 +440,10 @@ state: "{{ states('sensor.temperature') | float }}"
 
 1. **Clear Naming**: Use descriptive names that explain the automation's purpose
    ```yaml
-   # Good example
+   # Good
    - alias: "Porch Light at Sunset"
-   
-   # Bad example
+
+   # Bad
    - alias: "Auto 1"
    ```
 
@@ -225,14 +473,14 @@ state: "{{ states('sensor.temperature') | float }}"
 
 1. **Explicit Type Conversion**: Perform explicit type conversion before manipulating values
    ```yaml
-   # Good example
+   # Good
    state: "{{ int(states('sensor.value')) + 10 }}"
-   
-   # Bad example
+
+   # Bad
    state: "{{ states('sensor.value') + 10 }}"
    ```
 
-2. **Error Handling**: Set default values for cases where values don't exist
+2. **Error Handling**: Set default values for cases where values do not exist
    ```yaml
    state: "{{ float(states('sensor.temperature'), 0) }}"
    ```
@@ -286,7 +534,7 @@ homeassistant/
 
 These files are loaded from `configuration.yaml` as follows:
 
-```
+```yaml
 sensor: !include sensors.yaml
 shell_command: !include shell_commands.yaml
 switch: !include switches.yaml
@@ -297,7 +545,7 @@ Therefore, split files need to omit the leading key.
 
 #### Good Example
 
-```
+```yaml
 - platform: statistics
   unique_id: sensor.balcony_humidity_difference_average
   name: "Balcony Humidity Difference Average"
@@ -316,7 +564,7 @@ Therefore, split files need to omit the leading key.
 
 #### Bad Example
 
-```
+```yaml
 sensor:
   - platform: statistics
     unique_id: sensor.balcony_humidity_difference_average
@@ -348,7 +596,7 @@ sensor:
       friendly_name: "Balcony Temperature"
       # Average of two temperature sensors for better accuracy
       value_template: >-
-        {{ (float(states('sensor.balcony_temp_1')) + 
+        {{ (float(states('sensor.balcony_temp_1')) +
             float(states('sensor.balcony_temp_2'))) / 2 }}
 ```
 
@@ -359,7 +607,7 @@ sensor:
 - Names should be specific and descriptive
 
 ```yaml
-# Good example
+# Good
 sensor:
   - platform: template
     sensors:
@@ -388,260 +636,11 @@ sensor:
 
 ### Security
 
-- Protect sensitive information (passwords, tokens, API keys, etc.) using `!secret`
+- Protect sensitive information (passwords, tokens, and API keys) using `!secret`
 - Do not include sensitive information in public repositories
 
 ```yaml
-# Good example
+# Good
 http:
   api_password: !secret http_password
 ```
-
-#### Multi-line Strings
-
-Avoid using line break indicators like `\n` or long single-line strings. Instead, use literal style (preserves line breaks) and folded style (doesn't preserve line breaks) multi-line strings.
-
-```yaml
-# Good example
-literal_example: |
-  This example is an example of literal block scalar style in YAML.
-  It allows you to split a string into multiple lines.
-folded_example: >
-  This example is an example of a folded block scalar style in YAML.
-  It allows you to split a string into multi lines, however, it magically
-  removes all the new lines placed in your YAML.
-
-# Bad example
-literal_example: "This example is an example of literal block scalar style in YAML.\nIt allows you to split a string into multiple lines.\n"
-folded_example_same_as: "This example is an example of a folded block scalar style in YAML. It allows you to split a string into multi lines, however, it magically removes all the new lines placed in your YAML.\n"
-```
-
-Generally, use operators that don't specify trailing newline handling (`|`, `>`). Only use strip operators (`|-`, `>-`: removes trailing newlines) or keep operators (`|+`, `>+`: preserves trailing newlines) when special handling is needed.
-
-## Home Assistant YAML
-
-### Default Values
-
-If a configuration option uses its default value, do not include that option in examples, unless you are explaining that specific option.
-
-For example, the `condition` option in automations is optional and defaults to an empty list `[]`.
-
-```yaml
-# Good example
-- alias: "Test"
-  triggers:
-    - trigger: state
-      entity_id: binary_sensor.motion
-
-# Bad example
-- alias: "Test"
-  triggers:
-    - trigger: state
-      entity_id: binary_sensor.motion
-  condition: []
-```
-
-### Strings (Continued)
-
-As mentioned earlier, strings should preferably be enclosed in double quotes, but the following value types are exceptions and quotes can be omitted for better readability:
-
-- Entity IDs (e.g., `binary_sensor.motion`)
-- Entity attributes (e.g., `temperature`)
-- Device IDs
-- Area IDs
-- Platform types (e.g., `light`, `switch`)
-- Condition types (e.g., `numeric_state`, `state`)
-- Trigger types (e.g., `state`, `time`)
-- Action names (e.g., `light.turn_on`)
-- Device classes (e.g., `problem`, `motion`)
-- Event names
-- Hardcoded values that accept only limited values (e.g., automation `mode`)
-
-```yaml
-# Good example
-actions:
-  - action: notify.frenck
-    data:
-      message: "Hi there!"
-  - action: light.turn_on
-    target:
-      entity_id: light.office_desk
-      area_id: living_room
-    data:
-      transition: 10
-
-# Bad example
-actions:
-  - action: "notify.frenck"
-    data:
-      message: Hi there!
-```
-
-### Service Action Targets
-
-When executing a service action on an entity ID, there are three methods:
-
-1. Specify as an action-level property
-2. Send as part of the service action call data
-3. Specify as an entity in the service action target
-
-Service action targets are the most modern method and the most flexible and recommended approach, as they can target entities, devices, and areas.
-
-```yaml
-# Good example
-actions:
-  - action: light.turn_on
-    target:
-      entity_id: light.living_room
-  - action: light.turn_on
-    target:
-      area_id: living_room
-      entity_id: light.office_desk
-      device_id: 21349287492398472398
-
-# Bad example
-actions:
-  - action: light.turn_on
-    entity_id: light.living_room
-  - action: light.turn_on
-    data:
-      entity_id: light.living_room
-```
-
-### Properties Accepting Scalar Values or Lists of Scalar Values
-
-For properties that accept a single value or a list of scalar values, the following rules apply:
-
-- Do not specify multiple values as a single comma-separated string
-- Use block-style when using lists
-- Do not use a list for a single value
-- Using a single scalar value is permitted
-
-```yaml
-# Good example
-entity_id: light.living_room
-entity_id:
-  - light.living_room
-  - light.office
-
-# Bad example
-entity_id: light.living_room, light.office
-entity_id: [light.living_room, light.office]
-entity_id:
-  - light.living_room
-```
-
-### Properties Accepting Mappings or Lists of Mappings
-
-Properties like `condition`, `action`, and `sequence` accept a single mapping or a list of mappings.
-
-In such cases, use a list of mappings even when passing a single mapping. This makes it easier to understand that items can be added and makes it easier to copy and paste single items into your own code.
-
-```yaml
-# Good example
-actions:
-  - action: light.turn_on
-    target:
-      entity_id: light.living_room
-
-# Bad example
-actions:
-  action: light.turn_on
-  target:
-    entity_id: light.living_room
-```
-
-### Templates
-
-Home Assistant templates are powerful but can be confusing or difficult to understand for less experienced users. Therefore, avoid using templates when a pure YAML version is available.
-
-```yaml
-# Good example
-conditions:
-  - condition: numeric_state
-    entity_id: sun.sun
-    attribute: elevation
-    below: 4
-
-# Bad example
-conditions:
-  - condition: template
-    value_template: "{{ state_attr('sun.sun', 'elevation') < 4 }}"
-```
-
-#### Quoting Style
-
-Since templates are strings, enclose them in double quotes. As a result, use single quotes within templates.
-
-```yaml
-# Good example
-example: "{{ 'some_value' == some_other_value }}" 
-
-# Bad example
-example: '{{ "some_value" == some_other_value }}'
-```
-
-#### Template String Length
-
-Avoid long lines in templates and split them into multiple lines to clarify what's happening and improve readability.
-
-```yaml
-# Good example
-value_template: >-
-  {{
-    is_state('sensor.bedroom_co_status', 'Ok')
-    and is_state('sensor.kitchen_co_status', 'Ok')
-    and is_state('sensor.wardrobe_co_status', 'Ok')
-  }}
-
-# Bad example
-value_template: "{{ is_state('sensor.bedroom_co_status', 'Ok') and is_state('sensor.kitchen_co_status', 'Ok') and is_state('sensor.wardrobe_co_status', 'Ok') }}"
-```
-
-#### Short-Style Condition Syntax
-
-Prefer shorthand templates over expressive forms. They provide more concise syntax.
-
-```yaml
-# Good example
-conditions: "{{ some_value == some_other_value }}" 
-
-# Bad example
-conditions:
-  - condition: template
-    value_template: "{{ some_value == some_other_value }}"
-```
-
-#### Filters
-
-Spaces are required around the filter pipe marker `|`. If this makes readability unclear, using additional parentheses is recommended.
-
-```yaml
-# Good example
-conditions:
-  - "{{ some_value | float }}" 
-  - "{{ some_value == (some_other_value | some_filter) }}" 
-
-# Bad example
-conditions:
-  - "{{ some_value == some_other_value|some_filter }}" 
-  - "{{ some_value == (some_other_value|some_filter) }}"
-```
-
-#### Accessing States and State Attributes
-
-Do not use the states object directly when helper methods are available.
-
-For example, use `states('sensor.temperature')` instead of `states.sensor.temperature.state`.
-
-```yaml
-# Good example
-one: "{{ states('sensor.temperature') }}"
-two: "{{ state_attr('climate.living_room', 'temperature') }}"
-
-# Bad example
-one: "{{ states.sensor.temperature.state }}"
-two: "{{ states.climate.living_room.attributes.temperature }}"
-```
-
-This applies to `states()`, `is_state()`, `state_attr()`, and `is_state_attr()` to avoid errors and error messages when entities are not yet ready (e.g., during Home Assistant startup).
