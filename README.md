@@ -32,7 +32,7 @@ This power provides comprehensive Home Assistant support:
 - "What's the temperature in the bedroom?"
 - "Which lights are currently on?"
 
-### Automation and Template Development
+### Automation & Template Development
 
 - "Create an automation that turns on the porch light at sunset"
 - "Why isn't my motion sensor automation working?"
