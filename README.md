@@ -65,7 +65,7 @@ This power provides comprehensive Home Assistant support:
 1. Clone this repository
 2. Open Kiro → Powers panel
 3. Click "Import power from a folder"
-4. Select the `power-homeassistant` directory
+4. Select the `power-homeassistant` directory (not `kiro-power-homeassistant` directory)
 
 ## Prerequisites
 
