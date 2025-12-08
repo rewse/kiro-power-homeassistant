@@ -53,7 +53,7 @@ Power使用時に追加のコンテキストと指示を提供するSteeringフ�
 ## Powerの動作原理
 
 ### キーワードベースの活性化
-POWER.mdのフロントマターに定義されたキーワード（例: "homeassistant", "automation", "yaml", "smart home"）に基づいて、Powerが自動的に活性化される。
+POWER.mdのフロントマターに定義されたキーワード（例: "homeassistant", "hass", "ha-mcp"）に基づいて、Powerが自動的に活性化される。
 
 ### 動的ツールロード
 従来のMCP実装では全ツールを事前にロードするが、Powerは必要なツールのみを動的にロード：
