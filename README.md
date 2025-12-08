@@ -76,22 +76,30 @@ Ask Kiro: "Can you see my Home Assistant?"
 
 ## Usage Examples
 
-### Natural Language Control
+### Device Control & State Query
 
 - "Turn on the living room lights"
 - "What's the temperature in the bedroom?"
 - "Which lights are currently on?"
 
-### Automation Development
+### Automation and Template Development
 
 - "Create an automation that turns on the porch light at sunset"
-- "The motion sensor automation isn't working, debug it"
-- "Add the coffee maker to my morning routine"
+- "Why isn't my motion sensor automation working?"
+- "Create a template sensor that averages two temperature sensors"
 
 ### Dashboard Management
 
+- "Show me my current dashboard configuration"
 - "Add a weather card to my dashboard"
-- "Create a custom button card for my lights"
+- "Create a new view for my climate controls"
+
+### YAML Configuration
+
+- "Can you review my automation YAML for best practices?"
+- "How should I split my configuration.yaml?"
+- "My template sensor shows 'unavailable' on startup"
+- "Update my old automation to use modern syntax"
 
 ## Project Structure
 
