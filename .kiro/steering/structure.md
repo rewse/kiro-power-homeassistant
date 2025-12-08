@@ -12,6 +12,7 @@
 │       ├── homeassistant-dev-guide.md      # Home Assistant開発ガイド
 │       ├── homeassistant-mcp-tools.md      # MCPツールリファレンス
 │       ├── homeassistant-scripts-guide.md  # スクリプトガイド
+│       ├── homeassistant-smart-climate-guide.md # スマートクライメートガイド
 │       └── homeassistant-templating-guide.md # テンプレートガイド
 ├── LICENSE.md             # ライセンスファイル
 └── README.md              # ユーザー向けドキュメント

@@ -48,6 +48,7 @@ Power使用時に追加のコンテキストと指示を提供するSteeringフ�
 - `homeassistant-dev-guide.md`: Home Assistant開発ガイド（YAML構文、自動化パターン、ベストプラクティス）
 - `homeassistant-mcp-tools.md`: MCPツールリファレンス（各ツールの詳細な使用方法）
 - `homeassistant-scripts-guide.md`: スクリプトガイド（スクリプト構文、アクション、条件、制御フロー）
+- `homeassistant-smart-climate-guide.md`: スマートクライメートガイド（モジュラー自動化パターン、気候制御、適応型照明）
 - `homeassistant-templating-guide.md`: テンプレートガイド（Jinja2構文、状態関数、時間関数、フィルタ）
 
 ### README.md

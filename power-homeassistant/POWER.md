@@ -84,6 +84,14 @@ Test the connection by asking: "Can you see my Home Assistant?"
 - Configuring Android widgets or quick settings tiles → `homeassistant-companion-app-guide.md`
 - Troubleshooting mobile app connection issues → `homeassistant-companion-app-guide.md`
 - Using notification commands (request_location_update, etc.) → `homeassistant-companion-app-guide.md`
+- Building room-by-room climate systems → `homeassistant-smart-climate-guide.md`
+- Creating climate mode automations (Present/Absent/Vent) → `homeassistant-smart-climate-guide.md`
+- Implementing manual override patterns for climate control → `homeassistant-smart-climate-guide.md`
+- Using presence sensors for climate automation → `homeassistant-smart-climate-guide.md`
+- Setting up window/door sensors for climate control → `homeassistant-smart-climate-guide.md`
+- Creating modular automation chains → `homeassistant-smart-climate-guide.md`
+- Adaptive lighting based on time of day or illuminance → `homeassistant-smart-climate-guide.md`
+- Adjusting color temperature and brightness automatically → `homeassistant-smart-climate-guide.md`
 
 # Best Practices
 
@@ -269,6 +277,71 @@ Agent: Loads homeassistant-companion-app-guide.md for notification syntax
        - notify.mobile_app_[device] service
        - Optional: actionable buttons, images, critical alerts
        Uses ha_config_set_automation to deploy
+```
+
+## Build Smart Climate System (MCP + Steering)
+
+```
+User: Create a room-by-room climate system that follows my presence
+Agent: Loads homeassistant-smart-climate-guide.md for modular patterns
+       Creates helpers:
+       - input_select for room modes (Present/Absent/Vent)
+       - input_number for target temperatures per mode
+       - input_number for computed target temperature
+       Uses ha_config_set_input_select and ha_config_set_input_number
+       Creates 3 automation chain:
+       1. Inputs → Modes (presence + window sensors drive mode)
+       2. Modes → Target Temperature (mode determines temperature)
+       3. Target Temperature → Climate Device (with 1-hour override reset)
+       Uses ha_config_set_automation to deploy each automation
+       Confirms system is working with ha_get_entity_state
+```
+
+## Add Climate Override (MCP + Steering)
+
+```
+User: I want to manually override my thermostat and have it reset after an hour
+Agent: Loads homeassistant-smart-climate-guide.md for override pattern
+       Explains the pattern:
+       - Manual adjustment changes climate device temperature
+       - Automation triggers after 1 hour of stable temperature
+       - Re-applies mode's target temperature (resets override)
+       Creates/updates climate automation with:
+       - State trigger on climate entity temperature attribute
+       - for: hours: 1 duration
+       Uses ha_config_set_automation to deploy
+```
+
+## Create Bathroom Boost Mode (MCP + Steering)
+
+```
+User: Heat my bathroom automatically when I take a shower
+Agent: Loads homeassistant-smart-climate-guide.md for room variations
+       Creates helpers:
+       - input_select with Boost mode added
+       - input_number for boost temperature (e.g., 22°C)
+       Updates mode automation with humidity trigger:
+       - numeric_state trigger above 70% humidity
+       - Sets mode to Boost
+       Uses ha_config_set_automation to deploy
+       Confirms with ha_get_entity_state on humidity sensor
+```
+
+## Build Adaptive Lighting System (MCP + Steering)
+
+```
+User: Adjust my lights color temperature based on time of day and outdoor brightness
+Agent: Loads homeassistant-smart-climate-guide.md for modular patterns
+       Creates helpers using same Input → Mode → Output chain:
+       - input_select for lighting modes (Day/Evening/Night/Bright)
+       - input_number for color_temp and brightness per mode
+       - input_number for computed color_temp and brightness
+       Creates 3 automation chain:
+       1. Inputs → Modes (sun elevation + illuminance sensor drive mode)
+       2. Modes → Light Settings (mode determines color_temp/brightness)
+       3. Light Settings → Bulbs (apply to light entities)
+       Uses ha_config_set_automation to deploy each automation
+       Confirms with ha_get_entity_state on light entities
 ```
 
 # Troubleshooting

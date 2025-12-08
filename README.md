@@ -113,6 +113,7 @@ Ask Kiro: "Can you see my Home Assistant?"
 │       ├── homeassistant-dev-guide.md      # YAML and development patterns
 │       ├── homeassistant-mcp-tools.md      # MCP tools reference
 │       ├── homeassistant-scripts-guide.md  # Script syntax, actions, and conditions
+│       ├── homeassistant-smart-climate-guide.md # Modular climate/lighting automation patterns
 │       └── homeassistant-templating-guide.md # Jinja2 templating reference
 ├── LICENSE.md
 └── README.md
