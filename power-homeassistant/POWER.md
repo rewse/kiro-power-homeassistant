@@ -83,7 +83,7 @@ Test the connection by asking: "Can you see my Home Assistant?"
 
 ## Do's and Don'ts
 
-### ✅ Do:
+### Do:
 
 - Use natural language for device control and state queries
 - Use native YAML conditions instead of templates when available
@@ -93,7 +93,7 @@ Test the connection by asking: "Can you see my Home Assistant?"
 - Use descriptive automation names (e.g., "Porch Light at Sunset")
 - Test automations after creation
 
-### ❌ Don't:
+### Don't:
 
 - Hardcode tokens in code or documentation
 - Use template conditions when native conditions work
@@ -101,6 +101,124 @@ Test the connection by asking: "Can you see my Home Assistant?"
 - Skip testing after creating automations
 - Use abbreviations for automation names
 - Ignore automation traces when debugging
+
+# Common Workflows
+
+## Device Control (MCP only)
+
+```
+User: Turn on the living room lights
+Agent: Uses ha_search_entities to find light.living_room
+       Uses ha_call_service to call light.turn_on
+       Confirms the light is now on
+```
+
+## State Query (MCP only)
+
+```
+User: What's the temperature in the bedroom?
+Agent: Uses ha_search_entities to find temperature sensors
+       Uses ha_get_entity_state to retrieve current value
+       Reports temperature with unit
+```
+
+## Create Automation (MCP + Steering)
+
+```
+User: Create an automation that turns on the porch light at sunset
+Agent: Loads homeassistant-dev-guide.md for YAML conventions
+       Creates automation following best practices:
+       - Descriptive alias: "Porch Light at Sunset"
+       - Service action targets (not legacy entity_id)
+       - Two-space indentation, proper quoting
+       Uses ha_config_set_automation to deploy
+       Confirms automation is created and enabled
+```
+
+## Debug Automation (MCP + Steering)
+
+```
+User: Why isn't my motion sensor automation working?
+Agent: Uses ha_get_automation_traces to check execution history
+       Loads homeassistant-dev-guide.md if YAML issues suspected
+       Identifies trigger conditions, timing issues, or syntax problems
+       Suggests fixes based on trace analysis and best practices
+```
+
+## Dashboard Customization (MCP + Steering)
+
+```
+User: Add a weather card to my dashboard
+Agent: Uses ha_config_get_dashboard to read current config
+       Loads homeassistant-dev-guide.md for YAML structure
+       Adds weather card with proper formatting
+       Uses ha_config_set_dashboard to update
+```
+
+## Create Template Sensor (MCP + Steering)
+
+```
+User: Create a template sensor that averages two temperature sensors
+Agent: Loads homeassistant-dev-guide.md for template guidelines
+       Creates sensor with:
+       - unique_id for entity registry
+       - Proper device_class and state_class
+       - Function-style state access: states(), state_attr()
+       - Explicit type conversion: float()
+       - Default values for unavailable handling
+       Uses ha_config_set_template to deploy (or provides YAML)
+```
+
+## Review YAML Configuration (Steering only)
+
+```
+User: Can you review my automation YAML for best practices?
+Agent: Loads homeassistant-dev-guide.md for style guidelines
+       Checks for:
+       - Two-space indentation
+       - Boolean values (true/false, not yes/no)
+       - Double quotes for strings
+       - Service action target syntax
+       - Native conditions vs template conditions
+       Suggests improvements following official standards
+```
+
+## Organize Configuration Files (Steering only)
+
+```
+User: How should I split my configuration.yaml?
+Agent: Loads homeassistant-dev-guide.md for file organization
+       Recommends structure:
+       - sensors.yaml, automations.yaml, templates.yaml, scripts.yaml
+       Explains !include syntax and key omission in split files
+       Provides example configuration.yaml with includes
+```
+
+## Fix Template Errors (Steering only)
+
+```
+User: My template sensor shows "unavailable" on startup
+Agent: Loads homeassistant-dev-guide.md for template best practices
+       Identifies common issues:
+       - Direct states object access vs helper functions
+       - Missing default values
+       Suggests fixes:
+       - Use states('sensor.name') instead of states.sensor.name.state
+       - Add defaults: float(states('sensor.temp'), 0)
+```
+
+## Convert Legacy Syntax (Steering only)
+
+```
+User: Update my old automation to use modern syntax
+Agent: Loads homeassistant-dev-guide.md for current standards
+       Converts:
+       - entity_id in data → target syntax
+       - Template conditions → native conditions where possible
+       - yes/no booleans → true/false
+       - Single quotes → double quotes
+       Provides updated YAML following current best practices
+```
 
 # Troubleshooting
 
