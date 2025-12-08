@@ -76,6 +76,14 @@ Test the connection by asking: "Can you see my Home Assistant?"
 - Filtering, iterating, or aggregating entities → `homeassistant-templating-guide.md`
 - Using areas, devices, floors, or labels in templates → `homeassistant-templating-guide.md`
 - Creating reusable template macros → `homeassistant-templating-guide.md`
+- Sending notifications to mobile devices → `homeassistant-companion-app-guide.md`
+- Creating actionable notifications with buttons → `homeassistant-companion-app-guide.md`
+- Setting up location tracking or device trackers → `homeassistant-companion-app-guide.md`
+- Working with mobile app sensors (battery, network, etc.) → `homeassistant-companion-app-guide.md`
+- Configuring iOS widgets or Siri Shortcuts → `homeassistant-companion-app-guide.md`
+- Configuring Android widgets or quick settings tiles → `homeassistant-companion-app-guide.md`
+- Troubleshooting mobile app connection issues → `homeassistant-companion-app-guide.md`
+- Using notification commands (request_location_update, etc.) → `homeassistant-companion-app-guide.md`
 
 # Best Practices
 
