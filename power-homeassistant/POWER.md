@@ -67,8 +67,8 @@ Test the connection by asking: "Can you see my Home Assistant?"
 - Using wait actions or delays → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
 - Handling response variables from actions → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`
 - Working with dashboards or Lovelace cards → `homeassistant-dev-guide.md`
-- Creating template sensors → `homeassistant-dev-guide.md`, `homeassistant-templating-guide.md`
-- Debugging automation or script issues → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`, `homeassistant-templating-guide.md`
+- Creating template sensors → `homeassistant-dev-guide.md`, `homeassistant-templating-guide.md`, `homeassistant-tips-and-tricks.md`
+- Debugging automation or script issues → `homeassistant-dev-guide.md`, `homeassistant-scripts-guide.md`, `homeassistant-templating-guide.md`, `homeassistant-tips-and-tricks.md`
 - Looking up specific MCP tool usage → `homeassistant-mcp-tools.md`
 - Using Jinja2 template syntax → `homeassistant-templating-guide.md`
 - Accessing entity states or attributes in templates → `homeassistant-templating-guide.md`
@@ -92,6 +92,19 @@ Test the connection by asking: "Can you see my Home Assistant?"
 - Creating modular automation chains → `homeassistant-smart-climate-guide.md`
 - Adaptive lighting based on time of day or illuminance → `homeassistant-smart-climate-guide.md`
 - Adjusting color temperature and brightness automatically → `homeassistant-smart-climate-guide.md`
+- Looking for practical tips and tricks → `homeassistant-tips-and-tricks.md`
+- Extending voice assistant (Assist) with custom commands → `homeassistant-tips-and-tricks.md`
+- Using sentence triggers and wildcards → `homeassistant-tips-and-tricks.md`
+- Organizing dashboards with subviews → `homeassistant-tips-and-tricks.md`
+- Creating dynamic scenes with scene.create → `homeassistant-tips-and-tricks.md`
+- Using zones for occupancy detection → `homeassistant-tips-and-tricks.md`
+- Testing automations with fake state changes → `homeassistant-tips-and-tricks.md`
+- Using trigger IDs with choose action → `homeassistant-tips-and-tricks.md`
+- Understanding script run vs turn_on behavior → `homeassistant-tips-and-tricks.md`
+- Using input_boolean as automation master switch → `homeassistant-tips-and-tricks.md`
+- Setting up remote backups → `homeassistant-tips-and-tricks.md`
+- Configuring Universal Media Player → `homeassistant-tips-and-tricks.md`
+- Using macOS Companion App sensors → `homeassistant-tips-and-tricks.md`
 
 # Best Practices
 
@@ -342,6 +355,93 @@ Agent: Loads homeassistant-smart-climate-guide.md for modular patterns
        3. Light Settings → Bulbs (apply to light entities)
        Uses ha_config_set_automation to deploy each automation
        Confirms with ha_get_entity_state on light entities
+```
+
+## Extend Voice Assistant with Custom Commands (MCP + Steering)
+
+```
+User: Add a custom voice command to raise my standing desk
+Agent: Loads homeassistant-tips-and-tricks.md for sentence trigger patterns
+       Creates automation with:
+       - Sentence trigger with multiple phrases ("Raise the desk", "Desk up")
+       - Action to control the desk entity
+       Uses ha_config_set_automation to deploy
+       Explains how to test with Assist
+```
+
+## Test Automation with Fake State Changes (Steering only)
+
+```
+User: How can I test my temperature-based automation without waiting for weather?
+Agent: Loads homeassistant-tips-and-tricks.md for testing techniques
+       Explains Developer Tools → States workflow:
+       - Find the entity to modify
+       - Change state or attributes temporarily
+       - Automation triggers as if real change occurred
+       Warns to restore real values after testing
+```
+
+## Create Dynamic Scene for Temporary State Capture (MCP + Steering)
+
+```
+User: Save my current light settings before movie mode and restore after
+Agent: Loads homeassistant-tips-and-tricks.md for dynamic scene patterns
+       Creates automation with:
+       - scene.create action to capture current state
+       - Movie mode settings applied
+       - Second automation to restore with scene.turn_on
+       Notes that scene.create scenes don't survive restart
+       Uses ha_config_set_automation to deploy
+```
+
+## Organize Dashboard with Subviews (MCP + Steering)
+
+```
+User: Create a dashboard with room navigation using tiles
+Agent: Loads homeassistant-tips-and-tricks.md for subview patterns
+       Uses ha_config_get_dashboard to read current config
+       Creates structure:
+       - Main view with Tile cards for navigation
+       - Subviews for each room (subview: true)
+       - Tile tap_action with navigate to subview path
+       Uses ha_config_set_dashboard to update
+```
+
+## Group Automations with Master Switch (MCP + Steering)
+
+```
+User: Create a single switch to enable/disable all my vacation automations
+Agent: Loads homeassistant-tips-and-tricks.md for master switch pattern
+       Creates input_boolean helper for the group
+       Uses ha_config_set_input_boolean to create
+       Updates each related automation to add condition:
+       - state condition checking input_boolean is "on"
+       Uses ha_config_set_automation to update each automation
+       Confirms with ha_get_entity_state
+```
+
+## Set Up Zone-Based Occupancy Detection (MCP + Steering)
+
+```
+User: Trigger automations when everyone leaves home
+Agent: Loads homeassistant-tips-and-tricks.md for zone state patterns
+       Explains zone.home state represents person count
+       Creates automation with:
+       - numeric_state trigger on zone.home below 1
+       Uses ha_config_set_automation to deploy
+       Shows variations: home occupied, home full
+```
+
+## Configure Universal Media Player (MCP + Steering)
+
+```
+User: Combine my TV, Chromecast, and speakers into one media player
+Agent: Loads homeassistant-tips-and-tricks.md for Universal Media Player
+       Provides YAML configuration with:
+       - children: list of media player entities
+       - commands: override for turn_on, volume, etc.
+       - attributes: state and volume_level sources
+       Explains configuration.yaml integration
 ```
 
 # Troubleshooting

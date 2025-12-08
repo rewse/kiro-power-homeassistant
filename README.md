@@ -114,7 +114,8 @@ Ask Kiro: "Can you see my Home Assistant?"
 │       ├── homeassistant-mcp-tools.md      # MCP tools reference
 │       ├── homeassistant-scripts-guide.md  # Script syntax, actions, and conditions
 │       ├── homeassistant-smart-climate-guide.md # Modular climate/lighting automation patterns
-│       └── homeassistant-templating-guide.md # Jinja2 templating reference
+│       ├── homeassistant-templating-guide.md # Jinja2 templating reference
+│       └── homeassistant-tips-and-tricks.md # Practical tips: Assist, subviews, zones, dynamic scenes
 ├── LICENSE.md
 └── README.md
 ```
